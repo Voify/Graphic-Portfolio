@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Graphic Designer</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#64748b" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1.5rem;
+      }
+      .project-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      .project-card:hover {
+      transform: translateY(-5px);
+      }
+      .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      }
+      .project-card:hover .project-overlay {
+      opacity: 1;
+      }
+      input:focus, textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      }
+      .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      }
+      .custom-checkbox:checked {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+      }
+      .custom-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 6px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .price-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="font-['Pacifico'] text-2xl text-primary">Creative Aura Works</a>
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Home</a
+          >
+          <a
+            href="#portfolio"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Portfolio</a
+          >
+          <a
+            href="#about"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium transition-colors"
+            >Contact</a
+          >
+        </nav>
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </header>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="fixed inset-0 bg-white z-40 hidden flex-col pt-20 px-6">
+      <a href="#home" class="py-4 text-lg font-medium border-b border-gray-100"
+        >Home</a
+      >
+      <a
+        href="#portfolio"
+        class="py-4 text-lg font-medium border-b border-gray-100"
+        >Portfolio</a
+      >
+      <a href="#about" class="py-4 text-lg font-medium border-b border-gray-100"
+        >About</a
+      >
+      <a href="#contact" class="py-4 text-lg font-medium">Contact</a>
+    </div>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-28 pb-20"
+      style="background-image: url('https://readdy.ai/api/search-image?query=minimalist%20design%20studio%20with%20soft%20natural%20light%2C%20clean%20white%20workspace%20with%20subtle%20design%20elements%2C%20contemporary%20creative%20environment%2C%20professional%20atmosphere%2C%20high-end%20design%20workspace%2C%20soft%20shadows%2C%20clean%20lines%2C%20natural%20materials&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div class="container mx-auto px-6">
+        <div class="max-w-2xl bg-white bg-opacity-95 p-10 rounded-lg shadow-lg">
+          <h1 class="text-5xl font-bold text-gray-900 mb-6">
+            Creative Design Solutions
+          </h1>
+          <p class="text-xl text-gray-700 mb-8">
+            I transform ideas into visually compelling designs that communicate
+            your brand's story and captivate your audience.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#portfolio"
+              class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+              >View My Work</a
+            >
+            <a
+              href="#contact"
+              class="bg-white text-primary px-8 py-3 rounded-button font-medium border border-primary hover:bg-gray-50 transition-colors whitespace-nowrap"
+              >Get In Touch</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">My Portfolio</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+          Explore my latest projects across various design disciplines,
+          showcasing creativity, attention to detail, and strategic thinking.
+        </p>
+        <!-- Filter Buttons -->
+        <div
+          id="portfolio-filters"
+          class="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          <button
+            data-filter="all"
+            class="filter-btn bg-primary text-white px-6 py-2 rounded-full font-medium whitespace-nowrap !rounded-button"
+          >
+            All Projects
+          </button>
+          <button
+            data-filter="tute-covers"
+            class="filter-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors whitespace-nowrap !rounded-button"
+          >
+            Tute Covers
+          </button>
+          <button
+            data-filter="CV-Design"
+            class="filter-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors whitespace-nowrap !rounded-button"
+          >
+            CV Design
+          </button>
+          <button
+            data-filter="Posters/Banners"
+            class="filter-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors whitespace-nowrap !rounded-button"
+          >
+            Posters/Banners
+          </button>
+          <button
+            data-filter="Social-Media-Posts"
+            class="filter-btn bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors whitespace-nowrap !rounded-button"
+          >
+            Social Media Posts
+          </button>
+        </div>
+        <!-- Portfolio Grid -->
+        <div class="masonry-grid">
+          <!-- Project 1 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-md"
+            data-category="tute-covers"
+          >
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 05.jpg"
+              alt="Tute Cover Project"
+              class="w-full h-auto object-cover"
+            />
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 07.jpg"
+              alt="Tute Cover Project"
+              class="w-full h-auto object-cover"
+            />
+            
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Tute Cover 
+              </h3>
+              <p class="text-gray-300 mb-4">Tute Making</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 06.jpg"
+              alt="Tute Cover Project"
+              class="w-full h-auto object-cover"
+            />
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Tute Cover 
+              </h3>
+              <p class="text-gray-300 mb-4">Tute Making</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-md"
+            data-category="CV-Design"
+          >
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 04.jpg"
+              alt="Personal CV Project"
+              class="w-full h-auto object-cover"
+            />
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Job CV 
+              </h3>
+              <p class="text-gray-300 mb-4">Job CV Design</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-md"
+            data-category="Posters/Banners"
+          >
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 08.jpg"
+              alt="Banner Project"
+              class="w-full h-auto object-cover"
+            />
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Banners
+              </h3>
+              <p class="text-gray-300 mb-4">CMYK  Design</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+            <img
+              src="images/WhatsApp Image 2025-04-14 at 05.17.28.jpeg"
+              alt="Banner Project"
+              class="w-full h-auto object-cover"
+            />
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Banners
+              </h3>
+              <p class="text-gray-300 mb-4">CMYK  Design</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-md"
+            data-category="Social-Media-Posts"
+          >
+            <img
+              src="images/Mithun Minsara, 2024 Oct, Ex 01.jpg"
+              alt="Sociel Media Marketing Project"
+              class="w-full h-auto object-cover"
+            />
+             <img
+              src="images/Untitled-1 copy.jpg"
+              alt="Sociel Media Marketing Project"
+              class="w-full h-auto object-cover"
+            />
+            <div class="project-overlay p-6 text-center">
+              <h3 class="text-white text-xl font-semibold mb-2">
+                Sociel Media Marketing Project
+              </h3>
+              <p class="text-gray-300 mb-4">Marketing Design</p>
+              <a
+                href="#"
+                class="text-white bg-primary px-5 py-2 rounded-button inline-block hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >View Project</a
+              >
+            </div>
+          </div>
+          
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block border border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
+            >View All Projects</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="md:w-1/2">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20creative%20graphic%20designer%20in%20a%20modern%20studio%2C%20natural%20lighting%2C%20casual%20professional%20attire%2C%20thoughtful%20expression%2C%20clean%20background%2C%20high-quality%20professional%20headshot&width=600&height=700&seq=8&orientation=portrait"
+              alt="Designer Portrait"
+              class="rounded-lg shadow-lg w-full h-auto object-cover"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="text-3xl font-bold mb-6">About Me</h2>
+            <p class="text-gray-700 mb-6">
+              I'm Mithun Thilakarathne, a graphic designer with over 3 years of
+              experience creating impactful visual solutions for brands,posters graphics
+              designs across various industries. My approach combines strategic thinking
+              with creative execution to deliver designs that not only look beautiful
+              but also achieve business objectives.
+            </p>
+            <p class="text-gray-700 mb-8">
+              Based in Sri Lanka, I specialize in Poster/Banner Design,CV
+              design, Tute Cover Making, and Social Media Design.
+            </p>
+            <h3 class="text-xl font-semibold mb-4">My Design Process</h3>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0 mr-4"
+                >
+                  1
+                </div>
+                <div>
+                  <h4 class="font-semibold">Discovery</h4>
+                  <p class="text-gray-600">
+                    Understanding your idea, audience, and objectives
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0 mr-4"
+                >
+                  2
+                </div>
+                <div>
+                  <h4 class="font-semibold">Strategy</h4>
+                  <p class="text-gray-600">
+                    Developing a creative approach aligned with your goals
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0 mr-4"
+                >
+                  3
+                </div>
+                <div>
+                  <h4 class="font-semibold">Design</h4>
+                  <p class="text-gray-600">
+                    Creating visual solutions that communicate effectively
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0 mr-4"
+                >
+                  4
+                </div>
+                <div>
+                  <h4 class="font-semibold">Refinement</h4>
+                  <p class="text-gray-600">
+                    Iterating based on feedback to perfect the design
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >Let's Work Together</a
+              >
+              <a
+                href="#"
+                class="flex items-center gap-2 text-gray-700 hover:text-primary transition-colors"
+              >
+                <i class="ri-download-line"></i>
+                <span>Download Resume</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Project Detail Section (Hidden by default, would be shown when a project is clicked) -->
+    <section id="project-detail" class="hidden py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="mb-8">
+          <a
+            href="#portfolio"
+            class="inline-flex items-center text-gray-600 hover:text-primary transition-colors"
+          >
+            <i class="ri-arrow-left-line mr-2"></i>
+            <span>Back to Portfolio</span>
+          </a>
+        </div>
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold mb-4">Elysian Coffee Branding</h2>
+          <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+            <span class="flex items-center">
+              <i class="ri-calendar-line mr-2"></i>
+              <span>Completed: April 2025</span>
+            </span>
+            <span class="flex items-center">
+              <i class="ri-user-line mr-2"></i>
+              <span>Client: Elysian Coffee Co.</span>
+            </span>
+            <span class="flex items-center">
+              <i class="ri-price-tag-3-line mr-2"></i>
+              <span>Category: Brand Identity</span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-12">
+          <img
+            src="https://readdy.ai/api/search-image?query=luxury%20coffee%20brand%20identity%20design%20presentation%2C%20professional%20branding%20project%20showcase%2C%20elegant%20logo%20design%20and%20packaging%20for%20premium%20coffee%20brand%2C%20clean%20typography%2C%20sophisticated%20brand%20materials%20on%20white%20background&width=1200&height=800&seq=9&orientation=landscape"
+            alt="Project Hero Image"
+            class="w-full h-auto rounded-lg shadow-md object-cover"
+          />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Project Overview</h3>
+            <p class="text-gray-700 mb-4">
+              Elysian Coffee Co. approached me to create a brand identity that
+              would position them as a premium coffee roaster in a competitive
+              market. The client needed a complete branding system that would
+              appeal to discerning coffee enthusiasts while maintaining an
+              approachable feel.
+            </p>
+            <p class="text-gray-700">
+              The scope included logo design, packaging, stationery, digital
+              assets, and in-store materials. The brand needed to convey
+              quality, craftsmanship, and the company's commitment to ethical
+              sourcing.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">The Challenge</h3>
+            <p class="text-gray-700 mb-4">
+              The main challenge was creating a visual identity that would stand
+              out in the saturated specialty coffee market while avoiding
+              clichés common in the industry. The design needed to balance
+              premium positioning with accessibility to appeal to both coffee
+              connoisseurs and casual drinkers.
+            </p>
+            <p class="text-gray-700">
+              Additionally, the system needed to be flexible enough to
+              accommodate various product lines and future expansion while
+              maintaining brand consistency.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <img
+            src="https://readdy.ai/api/search-image?query=elegant%20coffee%20packaging%20design%2C%20professional%20graphic%20design%20work%2C%20minimalist%20coffee%20bag%20design%20on%20white%20background%2C%20clean%20typography%2C%20sophisticated%20product%20presentation&width=600&height=800&seq=10&orientation=portrait"
+            alt="Project Image 1"
+            class="w-full h-auto rounded-lg shadow-md object-cover"
+          />
+          <img
+            src="https://readdy.ai/api/search-image?query=modern%20coffee%20shop%20branding%20materials%2C%20professional%20stationery%20design%2C%20business%20cards%20and%20letterhead%20for%20coffee%20brand%2C%20clean%20design%20on%20white%20background&width=600&height=800&seq=11&orientation=portrait"
+            alt="Project Image 2"
+            class="w-full h-auto rounded-lg shadow-md object-cover"
+          />
+          <img
+            src="https://readdy.ai/api/search-image?query=premium%20coffee%20brand%20digital%20assets%2C%20professional%20web%20design%20for%20coffee%20company%2C%20elegant%20website%20mockup%20on%20devices%2C%20clean%20interface%20design&width=600&height=800&seq=12&orientation=portrait"
+            alt="Project Image 3"
+            class="w-full h-auto rounded-lg shadow-md object-cover"
+          />
+        </div>
+        <div class="mb-16">
+          <h3 class="text-xl font-semibold mb-4">The Solution</h3>
+          <p class="text-gray-700 mb-6">
+            I developed a sophisticated visual identity centered around a custom
+            wordmark that combines modern simplicity with subtle references to
+            coffee's organic origins. The color palette features deep, rich
+            tones that evoke the coffee experience, balanced with clean white
+            space for a contemporary feel.
+          </p>
+          <p class="text-gray-700 mb-6">
+            The packaging system uses a modular approach that maintains brand
+            consistency while allowing each coffee variety to have its own
+            distinct identity. Typography plays a key role in the system, with a
+            carefully selected pairing of serif and sans-serif fonts that convey
+            both heritage and modernity.
+          </p>
+          <p class="text-gray-700">
+            The digital assets translate this premium experience to screens,
+            with a responsive website design that showcases product photography
+            and tells the brand's story in an engaging way.
+          </p>
+        </div>
+        <div class="mb-16">
+          <h3 class="text-xl font-semibold mb-4">Results</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <div class="text-primary text-3xl font-bold mb-2">42%</div>
+              <p class="text-gray-700">
+                Increase in retail sales within the first quarter after
+                rebranding
+              </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <div class="text-primary text-3xl font-bold mb-2">3</div>
+              <p class="text-gray-700">
+                New wholesale partnerships secured with premium retailers
+              </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <div class="text-primary text-3xl font-bold mb-2">86%</div>
+              <p class="text-gray-700">
+                Of customers reported positive brand perception in surveys
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <a
+            href="#"
+            class="inline-flex items-center text-gray-600 hover:text-primary transition-colors"
+          >
+            <i class="ri-arrow-left-line mr-2"></i>
+            <span>Previous Project</span>
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center text-gray-600 hover:text-primary transition-colors"
+          >
+            <span>Next Project</span>
+            <i class="ri-arrow-right-line ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Contact & Pricing Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">Let's Work Together</h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">
+          Ready to bring your vision to life? Get in touch to discuss your
+          project needs and how we can collaborate to create impactful design
+          solutions.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <!-- Contact Form -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+            <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name" name="name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email" name="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                    placeholder="Your email"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject" name="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                  placeholder="Subject"
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Message</label
+                >
+                <textarea
+                  id="message" name="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
+                  placeholder="Your message"
+                ></textarea>
+              </div>
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  class="custom-checkbox mt-1"
+                />
+                <label for="consent" class="ml-3 text-sm text-gray-600"
+                  >I agree to the processing of my personal data in accordance
+                  with the Privacy Policy</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+            <div class="mt-12">
+              <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-100 text-primary rounded-full flex-shrink-0 mr-4"
+                  >
+                    <i class="ri-mail-line"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium">Email</h5>
+                    <p class="text-gray-600">mithunminsara385@gmail.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-100 text-primary rounded-full flex-shrink-0 mr-4"
+                  >
+                    <i class="ri-phone-line"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium">Phone</h5>
+                    <p class="text-gray-600">(+94)70 268-5025</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-blue-100 text-primary rounded-full flex-shrink-0 mr-4"
+                  >
+                    <i class="ri-map-pin-line"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium">Location</h5>
+                    <p class="text-gray-600">Colombo, SL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold mb-4">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-instagram-line text-gray-700"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-behance-line text-gray-700"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-linkedin-line text-gray-700"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  >
+                    <i class="ri-dribbble-line text-gray-700"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Pricing Cards -->
+          <div>
+            
+<h3 class="text-2xl font-semibold mb-6">Service Packages</h3>
+<div class="space-y-8">
+  <!-- Basic Package -->
+  <div class="price-card bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h4 class="text-xl font-semibold">Essential Pack</h4>
+        <p class="text-gray-600">Ideal for quick and impactful designs</p>
+      </div>
+      <div class="text-right">
+        <span class="text-2xl font-bold text-gray-900">LKR 800</span>
+        <p class="text-sm text-gray-500">Per project</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-100 my-6"></div>
+    <ul class="space-y-3 mb-8">
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>1 CV or Poster Design</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>Basic Revisions (up to 2)</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>Multiple Format Delivery</span></li>
+    </ul>
+    <a href="#" class="block text-center bg-white text-primary border border-primary px-6 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Select Package</a>
+  </div>
+  <!-- Standard Package -->
+  <div class="price-card bg-white border-2 border-primary rounded-lg p-8 shadow-md relative">
+    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h4 class="text-xl font-semibold">Professional Pack</h4>
+        <p class="text-gray-600">Great for social media and marketing needs</p>
+      </div>
+      <div class="text-right">
+        <span class="text-2xl font-bold text-gray-900">LKR 1,000</span>
+        <p class="text-sm text-gray-500">Bundle</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-100 my-6"></div>
+    <ul class="space-y-3 mb-8">
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>Up to 3 Social Media Designs</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>1 Poster or Banner</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>Multiple Revisions</span></li>
+    </ul>
+    <a href="#" class="block text-center bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap">Select Package</a>
+  </div>
+  <!-- Premium Package -->
+  <div class="price-card bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h4 class="text-xl font-semibold">Complete Brand Pack</h4>
+        <p class="text-gray-600">Perfect for events or small business launches</p>
+      </div>
+      <div class="text-right">
+        <span class="text-2xl font-bold text-gray-900">LKR 1,500</span>
+        <p class="text-sm text-gray-500">Bundle</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-100 my-6"></div>
+    <ul class="space-y-3 mb-8">
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>1 CV + 2 Posters + 3 Social Media Posts</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>Custom Tute Cover</span></li>
+      <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i><span>All formats included + Priority Revisions</span></li>
+    </ul>
+    <a href="#" class="block text-center bg-white text-primary border border-primary px-6 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">Select Package</a>
+  </div>
+</div>
+<div class="mt-8 bg-gray-50 p-6 rounded-lg">
+              <h4 class="text-lg font-semibold mb-3">
+                Need a Custom Solution?
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Don't see a package that fits your needs? I offer tailored
+                solutions for specific design requirements and ongoing design
+                support.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:underline"
+              >
+                <span>Request a custom quote</span>
+                <i class="ri-arrow-right-line ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center mb-8"
+        >
+          <a href="#" class="font-['Pacifico'] text-2xl text-white mb-6 md:mb-0"
+            >Creative Aura Works</a
+          >
+          <nav class="flex flex-wrap justify-center gap-8">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Home</a
+            >
+            <a
+              href="#portfolio"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Portfolio</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-white transition-colors"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-white transition-colors"
+              >Contact</a
+            >
+          </nav>
+        </div>
+        <div class="border-t border-gray-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+              &copy; 2025 Mithun Thilakarthne. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-behance-line"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-linkedin-line"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-dribbble-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuButton = document.querySelector("button.md\\:hidden");
+        const mobileMenu = document.querySelector(".fixed.inset-0.bg-white");
+        menuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex");
+        });
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Back to top button
+        const backToTopButton = document.getElementById("back-to-top");
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove("opacity-0", "invisible");
+            backToTopButton.classList.add("opacity-100", "visible");
+          } else {
+            backToTopButton.classList.remove("opacity-100", "visible");
+            backToTopButton.classList.add("opacity-0", "invisible");
+          }
+        });
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll(
+          "#portfolio-filters .filter-btn",
+        );
+        const projectCards = document.querySelectorAll(".project-card");
+        function filterProjects(category) {
+          filterButtons.forEach((btn) => {
+            if (btn.getAttribute("data-filter") === category) {
+              btn.classList.remove("bg-gray-100", "text-gray-700");
+              btn.classList.add("bg-primary", "text-white");
+            } else {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("bg-gray-100", "text-gray-700");
+            }
+          });
+          projectCards.forEach((card) => {
+            if (
+              category === "all" ||
+              card.getAttribute("data-category") === category
+            ) {
+              card.style.display = "";
+              card.style.opacity = "1";
+              card.style.transform = "scale(1)";
+            } else {
+              card.style.opacity = "0";
+              card.style.transform = "scale(0.8)";
+              setTimeout(() => {
+                card.style.display = "none";
+              }, 300);
+            }
+          });
+        }
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const category = button.getAttribute("data-filter");
+            filterProjects(category);
+          });
+        });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
